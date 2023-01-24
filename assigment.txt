@@ -1,0 +1,162 @@
+  1.Reverse an array.
+
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void print(int arr[], int n)
+{
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+}
+void reverse(int arr[], int n) {
+    reverse(arr, arr + n);
+}
+ 
+int main()
+{
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr)/sizeof(arr[0]);
+ 
+    reverse(arr, n);
+    print(arr, n);
+ 
+    return 0;
+}
+
+
+
+
+
+
+
+     2. Sort an array
+
+
+  #include <bits/stdc++.h>
+  using namespace std;
+  
+int main()
+{
+    int arr[] = { 1, 45, 54, 71, 76, 12 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+  
+    // Print the array
+    cout << "Array: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    sort(arr, arr + n);
+    cout << "Sorted Array: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+  
+    return 0;
+}
+
+
+
+ 
+
+   3. Write a program to find frequency of maximum occurred element.
+
+
+    #include <bits/stdc++.h>
+    using namespace std;
+  
+int mostFrequent(int arr[], int n)
+{
+    // Sort the array
+    sort(arr, arr + n);
+  
+    // Find the max frequency using linear traversal
+    int max_count = 1, res = arr[0], curr_count = 1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] == arr[i - 1])
+            curr_count++;
+        else
+            curr_count = 1;
+        
+        if (curr_count > max_count) {
+            max_count = curr_count;
+            res = arr[i - 1];
+        }
+    }
+  
+    return res;
+}
+  
+// Driver program
+int main()
+{
+    int arr[] = { 40,50,30,40,50,30,30};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << mostFrequent(arr, n);
+    return 0;
+}
+
+
+
+
+
+
+  4. Write program to find sum of two smallest elements in array
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int sumBetweenTwoKth(int arr[], int n, int k1, int k2)
+{
+    sort(arr, arr + n);
+    return accumulate(arr + k1, arr + k2 - 1, 0);
+}
+int main()
+{
+    int arr[] = { 20, 8, 22, 4, 12, 10, 14 };
+    int k1 = 3, k2 = 6;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << sumBetweenTwoKth(arr, n, k1, k2);
+    return 0;
+}
+
+
+
+
+
+
+
+  5. Write program to find difference between largest and smallest element of array
+
+
+
+#include<iostream>
+using namespace std;
+int main ()
+{
+    int arr[10], n, i, max, min;
+    cout << "Enter the size of the array : ";
+    cin >> n;
+    cout << "Enter the elements of the array : ";
+    for (i = 0; i < n; i++)
+        cin >> arr[i];
+    max = arr[0];
+    for (i = 0; i < n; i++)
+    {
+        if (max < arr[i])
+            max = arr[i];
+    }
+    min = arr[0];
+    for (i = 0; i < n; i++)
+    {
+        if (min > arr[i])
+            min = arr[i];
+    }
+    cout << "Largest element : " << max;
+    cout << "Smallest element : " << min;
+    return 0;
+}
+
+  
